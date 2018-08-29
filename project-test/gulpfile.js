@@ -13,9 +13,13 @@ function scripts() {
         .pipe(concat('main.min.js'))
         .pipe(gulp.dest('assets/scripts/'))
 }
+
 function jsons() {
     return gulp.src('src/**/*.json')
         .pipe(gulp.dest('assets/jsons/'))
 }
 
 gulp.task("default", gulp.series(clean, scripts, jsons))
+gulp.task("clean", clean)
+gulp.task("scripts", scripts)
+gulp.task("jsons", jsons)
